@@ -1,0 +1,20 @@
+{
+  "name": "workshop-redux",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "João Moura",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "colors": "^1.1.2",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1"
+  }
+}
