@@ -1,0 +1,16 @@
+.main-container {
+  position: fixed;
+  top: 65px;
+  left: 240px;
+  width: calc(100% - 240px);
+  height: calc(100% - 65px);
+  background-color: $main-bg;
+  padding: 20px;
+  transition: left .2s ease, width .2s ease;
+  box-shadow: -1px -1px 5px 1px rgba(0, 0, 0, 0.24) inset;
+
+  @include mq($until: tablet) {
+    left: 0;
+    width: 100%;
+  }
+}

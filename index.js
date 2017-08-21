@@ -1,41 +1,28 @@
-import { createStore } from 'redux'
-import reducer from './reducer'
-import sleep from './helpers'
-import colors from 'colors'
+var webpack = require('webpack')
+var WebpackDevServer = require('webpack-dev-server')
+var config = require('./webpack.config')
 
-let store = createStore(reducer)
+var serverOptions = {
+  publicPath: config.output.publicPath,
+  hot: true,
+  stats: {
+    colors: true,
+    hash: false,
+    timings: true,
+    chunks: false,
+    chunkModules: false,
+    modules: false
+  },
+  historyApiFallback: true,
+  contentBase: 'src'
+}
 
-const receiveComment = comment => ({
-  type: 'RECEIVE_COMMENT',
-  comment
+var compiler = webpack(config)
+var webpackDevServer = new WebpackDevServer(compiler, serverOptions)
+
+webpackDevServer.listen(5000, function (err) {
+  if (err) {
+    throw err
+  }
+  console.log('webpack dev server listening on %s', 5000)
 })
-
-store.dispatch(receiveComment('Redux is great!'))
-store.dispatch(receiveComment('Redux is not React!'))
-store.dispatch(receiveComment('Redux is just redux!'))
-console.log(store.getState())
-
-/*
-console.log('Sending comment to redux ===>>>'.green)
-sleep(1000)
-store.dispatch(receiveComment('Redux is great!'))
-console.log('Redux store ===>>>'.yellow)
-console.log(store.getState())
-sleep(5000)
-console.log('\n\n\nSending comment to redux ===>>>'.green)
-sleep(1000)
-store.dispatch(receiveComment('Redux is not React!'))
-console.log('Redux store ===>>>'.yellow)
-console.log(store.getState())
-sleep(5000)
-console.log('\n\n\nSending comment to redux ===>>>'.green)
-sleep(1000)
-store.dispatch(receiveComment('Redux is just redux!'))
-console.log('Redux store ===>>>'.yellow)
-console.log(store.getState())
-sleep(5000)
-console.log('\n\n\nFinal Redux store state ===>>>'.red.bold)
-console.log(store.getState())
-*/
-
-export default store

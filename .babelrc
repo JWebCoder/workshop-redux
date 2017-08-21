@@ -1,12 +1,15 @@
 {
   "presets": [
-    [
-      "env", {
-        "targets": {
-          "browsers": ["last 2 versions", "safari >= 7"]
-        }
-      }
-    ],
+    "react",
+    "latest",
     "stage-3"
+  ],
+  "plugins": [
+    [
+      "resolver",
+      {
+        "resolveDirs": ["src"]
+      }
+    ]
   ]
 }

@@ -1,0 +1,25 @@
+// colors
+$color-main: #00a1df;
+
+$color-white: #fafafa;
+$color-black: #000;
+
+$color-grey-light: #efefef;
+$color-grey: #ccc;
+
+$main-bg: $color-grey-light;
+$home-free: #174a7c;
+$home-button: #0060b3;
+
+$white-button: $color-white;
+
+$color-grey-light: #efefef;
+
+$title-font-size: 20px;
+
+$mq-breakpoints: (
+    mobile:  320px,
+    tablet:  740px,
+    desktop: 980px,
+    wide:    1300px
+);
