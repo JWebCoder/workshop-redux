@@ -1,22 +1,28 @@
-import React from 'react';
-import Drawer from 'app/components/Drawer';
-import TopBar from 'app/components/TopBar';
-import {Route} from 'react-router';
-import {injectAsyncReducer} from 'app/store/configureStore';
-import NavigationReducer from 'app/reducers/navigation';
-import * as NavigationActions from 'app/reducers/navigation/actions';
+import React from 'react'
+import Drawer from 'app/components/Drawer'
+import TopBar from 'app/components/TopBar'
+import {Route} from 'react-router'
+import { bindActionCreators } from 'redux'
+import * as NavigationActions from 'app/reducers/navigation/actions'
+import {connect} from 'react-redux'
 
-const navigationReducer = {
-  reducer: NavigationReducer,
-  name: 'navigation',
-  actions: NavigationActions
-}
+const mapStateToProps = state => (
+  {
+    navigation: state.navigation
+  }
+)
+
+const mapDispatchToProps = dispatch => (
+  {
+    actions: bindActionCreators(NavigationActions, dispatch)
+  }
+)
 
 const Navigation = props => (
   <div className="main-navigation">
-    <TopBar storeInjector={injectAsyncReducer} reducerObj={navigationReducer} showMobileBurger/>
-    <Drawer storeInjector={injectAsyncReducer} reducerObj={navigationReducer}/>
+    <TopBar showMobileBurger actions={props.actions} navigation={props.navigation}/>
+    <Drawer actions={props.actions} navigation={props.navigation}/>
   </div>
-);
+)
 
-export default Navigation;
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation)

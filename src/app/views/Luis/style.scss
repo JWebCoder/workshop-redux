@@ -1,0 +1,30 @@
+.luis {
+  .counter-btn {
+    width: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .the-face {
+    width: 100%;
+    display: block;
+  }
+
+  .background {
+    background-image: url('../assets/benfica.jpg');
+    background-position: center center;
+    background-size: auto 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-container {
+    width: 50px;
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+  }
+}
