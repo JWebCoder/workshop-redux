@@ -4,7 +4,7 @@ import Container from 'app/container';
 
 const Layout = props => (
   <div>
-    <Navigation/>
+    <Navigation id='navigation'/>
     <div className="main-container">
       <Container/>
     </div>
